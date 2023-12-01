@@ -1,0 +1,4 @@
+{
+  // add black formatter
+  "python.formatting.provider": "black"
+}

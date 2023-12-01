@@ -56,7 +56,7 @@ def _extract_num_and_str_with_dict(line, digits_str_to_int):
         except ValueError:
             continue
 
-        if digit_index < first_digit_index or first_digit_index is None:
+        if first_digit_index is None or digit_index < first_digit_index:
             first_digit_index = digit_index
             first_digit = digits_str_to_int[digit_str]
 
@@ -87,11 +87,7 @@ def run_pt_2():
         "9": 9,
     }
 
-    reversed_digits_str_to_int = {}
-
-    for k, v in digits_str_to_int.items():
-        k = k[::-1]
-        reversed_digits_str_to_int[k] = v
+    reversed_digits_str_to_int = {k[::-1]: v for k, v in digits_str_to_int.items()}
 
     with open("inputs.txt", "r") as f:
         for line in f:
